@@ -1,8 +1,13 @@
+# Hướng dẫn để các bạn có thể sử dụng docker một cách cơ bản nhất. Sau đó, các bạn cần gì thì học cái đó thông qua tài liệu của nhà phát triển
+
 ## Tải docker image về máy (pull docker image)
 ```
 $ docker pull docker_image_name:tag_name
-# docker pull ubuntu:latest
-# docker pull ubuntu:18.04
+```
+Ví dụ:
+```
+$ docker pull ubuntu:latest
+$ docker pull ubuntu:18.04
 ```
 
 ## Kiểm tra các image đang có trong máy
@@ -30,10 +35,12 @@ $ docker run -it --name test docker_image_name /bin/bash
 
 ### Lựa chọn GPU (Không dùng hoặc máy không có GPU thì không cần quan tâm)
 ```
-$ docker run -it --rm --gpus all docker_image_name /bin/bash 
 $ docker run -it --rm --gpus '"device=1,2"' docker_image_name /bin/bash
 ```
 Nếu mới sử dụng thì dể cho dễ dàng anh các bạn cứ để "all"
+```
+$ docker run -it --rm --gpus all docker_image_name /bin/bash 
+```
 
 ### Volumes
 Project của chúng ta được tạo ở 1 thư mục trong container. Nếu thư mục này không được mount ra ngoài thì khi container bị xóa đồng nghĩa với việc  
