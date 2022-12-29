@@ -23,7 +23,7 @@ Container được tạo ra có tên bất kỳ
 ```
 $ docker run -it --rm docker_image_name /bin/bash 
 ```
-### Có đặt tên
+### Có đặt tên:
 ```
 $ docker run -it --name test docker_image_name /bin/bash 
 ```
@@ -82,6 +82,31 @@ Có 2 cách:
 $ docker attach container_name
 $ docker exec -it container_name /bin/bash 
 ```
-## 2 Khái niệm đê không được nhầm lẫn
+## Commit docker container thành docker image
+```
+$ docker commit docker_container_name docker_image_name:tag
+```
+Ví dụ: Mình có 1 container là tienln_ubuntu
+```
+$ docker commit tienln_ubuntu ubuntu:18.04_installed_lib
+```
+## Push docker image
+Nếu các bạn muốn đẩy image lên dockerhub thì cần tạo 1 tài khoản dockerhub  
+Ví dụ mình có tài khoản: tienluongngoc thì khi commit container mình làm như sau  
+```
+$ docker commit tienln_ubuntu tienluongngoc/ubuntu:18.04_installed_lib
+```
+Tạo 1 repository trên dockerhub có tên: ubuntu
+Sau đó, bạn login docker tại terminal:
+```
+$ docker login
+# Sau đó nhập user_name, password
+```
+Để push image bạn thực hiện câu lệnh
+```
+$ docker push tienluongngoc/ubuntu:18.04_installed_lib
+```
+
+## Có 2 Khái niệm đê không được nhầm lẫn
 1. Dockerfile: là file để tạo ra 1 docker image
 2. Docker-compose: Là file dùng để tạo 1 hoặc nhiều container
