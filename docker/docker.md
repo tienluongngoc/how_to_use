@@ -26,7 +26,7 @@ $ docker ps
 ### Không đặt tên
 Container được tạo ra có tên bất kỳ
 ```
-$ docker run -it --rm docker_image_name /bin/bash 
+$ docker run -it docker_image_name /bin/bash 
 ```
 ### Có đặt tên:
 ```
